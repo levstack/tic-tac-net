@@ -1,6 +1,15 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
+public class CreateGameRequest
+{
+    public string PlayerToken { get; set; }
+}
+public class MoveRequest
+{
+    public string GameToken { get; set; }
+    public int MoveIndex { get; set; }
+}
 public class Game
 {
     [BsonId]
