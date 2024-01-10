@@ -1,3 +1,5 @@
+// GameRepository.cs
+
 using MongoDB.Driver;
 using System.Threading.Tasks;
 
@@ -15,6 +17,11 @@ public class GameRepository
     public async Task<Game> GetGameByIdAsync(string id)
     {
         return await _games.Find(game => game.Id == id).FirstOrDefaultAsync();
+    }
+
+    public async Task<Game> GetGameByTokenAsync(string token)
+    {
+        return await _games.Find(game => game.Token == token).FirstOrDefaultAsync();
     }
 
     public async Task InsertGameAsync(Game game)
